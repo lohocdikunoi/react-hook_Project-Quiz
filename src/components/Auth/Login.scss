@@ -1,0 +1,76 @@
+.Login-container {
+  .header {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+
+    button {
+      border: 1px solid;
+      background: #fff;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-right: 30px;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+
+  .content {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    .title {
+      font-size: 2.5rem;
+      text-align: center;
+      font-weight: 700;
+    }
+    .welcome {
+      text-align: center;
+      font-size: 2rem;
+    }
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      label {
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+    }
+
+    .back {
+      cursor: pointer;
+    }
+    .btn-submit {
+      border: none;
+      background: #000;
+      color: #fff;
+      padding: 10px 0;
+      border-radius: 5px;
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+      .loading {
+        margin-bottom: 2px;
+        animation: loading 1s inherit linear;
+      }
+
+      @keyframes loading {
+        form {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}

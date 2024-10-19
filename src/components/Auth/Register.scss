@@ -1,0 +1,70 @@
+.Register_container {
+  .header {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+
+    button {
+      border: 1px solid;
+      background: #fff;
+      padding: 3px 10px;
+      border-radius: 5px;
+      margin-right: 30px;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+
+  .content {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0 auto;
+    }
+
+    .welcome {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .group-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .footer {
+        display: flex;
+      }
+
+      .form-password {
+        position: relative;
+
+        .eyes {
+          position: absolute;
+          right: 10px;
+          bottom: 8px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .btn {
+    background: #000;
+    color: #fff;
+    padding: 10px;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

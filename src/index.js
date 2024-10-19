@@ -1,16 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
-import store from './redux/store';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Layout from "./Layout";
+import { BrowserRouter } from "react-router-dom";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
   </Provider>
 );
 
