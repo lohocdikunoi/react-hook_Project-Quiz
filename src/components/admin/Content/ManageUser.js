@@ -11,7 +11,7 @@ import ModalDeleteUser from "./ModalDeleteUser";
 import TableUserPaginate from "./TableUserPaginate";
 
 const ManageUser = () => {
-  const LIMIT_USER = 3;
+  const LIMIT_USER = 7;
 
   const [showModalCreateUser, setShowModalCreateUser] = useState(false);
   const [showModalUpdateUser, setShowModalUpdateUser] = useState(false);

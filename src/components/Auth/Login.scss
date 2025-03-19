@@ -54,21 +54,27 @@
       padding: 10px 0;
       border-radius: 5px;
 
+      &:disabled {
+        background-color: #ddd;
+        color: #afafaf;
+        cursor: no-drop;
+      }
+
       &:hover {
         opacity: 0.9;
       }
 
       .loading {
         margin-bottom: 2px;
-        animation: loading 1s inherit linear;
+        animation: loading 1s infinite linear;
       }
 
       @keyframes loading {
-        form {
-          transform: rotate(0deg);
+        from {
+          transform: scale(1) rotate(0deg);
         }
         to {
-          transform: rotate(360deg);
+          transform: scale(1) rotate(360deg);
         }
       }
     }

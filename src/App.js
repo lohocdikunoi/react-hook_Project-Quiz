@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/header/header";
+import PerfectScrollbar from "react-perfect-scrollbar";
 
 const App = () => {
   return (
@@ -12,7 +13,9 @@ const App = () => {
         <div className="sidebar-container"></div>
       </div>
       <div className="app-content">
-        <Outlet />
+        <PerfectScrollbar>
+          <Outlet />
+        </PerfectScrollbar>
       </div>
     </div>
   );

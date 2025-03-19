@@ -5,11 +5,17 @@ import HomePage from "./components/home/HomePage";
 import Dashboard from "./components/admin/Content/Dashboard";
 import ManageUser from "./components/admin/Content/ManageUser";
 import Login from "./components/Auth/Login";
-
 import { Routes, Route } from "react-router-dom";
-
 import { ToastContainer } from "react-toastify";
 import Register from "./components/Auth/Register";
+import ListQuiz from "./components/users/ListQuiz";
+import DetailQuiz from "./components/users/DetailQuiz";
+import ManageQuiz from "./components/admin/Content/Quiz/ManageQuiz";
+import Questions from "./components/admin/Content/Questions/Questions";
+
+const NotFound = () => {
+  return <div className="container ">Error: 404. Not Found.</div>;
+};
 
 const Layout = () => {
   return (
@@ -17,16 +23,21 @@ const Layout = () => {
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />}></Route>
-          <Route path="users" element={<User />}></Route>
+          <Route path="users" element={<ListQuiz />}></Route>
         </Route>
+        <Route path="/quiz/:id" element={<DetailQuiz />}></Route>
 
         <Route path="admin" element={<Admin />}>
           <Route index element={<Dashboard />}></Route>
           <Route path="/admin/manage-user" element={<ManageUser />}></Route>
+          <Route path="/admin/manage-quizzes" element={<ManageQuiz />}></Route>
+          <Route path="/admin/manage-questions" element={<Questions />}></Route>
         </Route>
 
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
+
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
 
       <ToastContainer

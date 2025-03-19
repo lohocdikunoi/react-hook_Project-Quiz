@@ -12,6 +12,7 @@ const Login = (props) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -34,16 +35,18 @@ const Login = (props) => {
       toast.error("Validate Password");
       return;
     }
-
+    setIsLoading(true);
     let data = await postLogin(email, password);
     if (data && data.EC === 0) {
       dispatch(doLogin(data));
       toast.success(data.EM);
-      // navigate("/");
+      setIsLoading(false);
+      navigate("/");
     }
 
     if (data && data.EC !== 0) {
       toast.error(data.EM);
+      setIsLoading(false);
     }
   };
 
@@ -86,12 +89,13 @@ const Login = (props) => {
           </div>
         </div>
         <button
+          disabled={isLoading}
           onClick={() => HandleSubmitLogin()}
           className="btn-submit mx-auto col-4"
         >
-          <div className="loading">
-            <AiOutlineLoading3Quarters />{" "}
-          </div>
+          {isLoading === true && (
+            <AiOutlineLoading3Quarters className="loading" />
+          )}{" "}
           &nbsp;
           <span>Login to Trinh Kim Vien</span>
         </button>

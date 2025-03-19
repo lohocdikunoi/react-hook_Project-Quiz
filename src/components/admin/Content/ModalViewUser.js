@@ -33,8 +33,6 @@ const ModalViewUser = (props) => {
     }
   }, [dataUpdate]);
 
-  console.log(">>> Check data update", dataUpdate);
-
   return (
     <>
       <Modal

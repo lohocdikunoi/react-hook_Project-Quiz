@@ -1,4 +1,5 @@
 import "react-pro-sidebar/dist/css/styles.css";
+import { useNavigate } from "react-router-dom";
 import {
   ProSidebar,
   Menu,
@@ -26,6 +27,7 @@ import "./SideBar.scss";
 import { Link } from "react-router-dom";
 
 const SideBar = (props) => {
+  const navigate = useNavigate();
   const { image, collapsed, toggled, handleToggleSidebar } = props;
   return (
     <>
@@ -50,7 +52,9 @@ const SideBar = (props) => {
             }}
           >
             <DiReact size={"3em"} color={"00bfff"} />
-            <span>Trinh Kim Vien</span>
+            <span style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
+              Trinh Kim Vien
+            </span>
           </div>
         </SidebarHeader>
 
@@ -67,8 +71,16 @@ const SideBar = (props) => {
                 Quản lý Users
                 <Link to="/admin/manage-user" />
               </MenuItem>
-              <MenuItem> Quản lý Bài Quiz</MenuItem>
-              <MenuItem> Quản lý Câu Hỏi</MenuItem>
+              <MenuItem>
+                {" "}
+                Quản lý Bài Quiz
+                <Link to="/admin/manage-quizzes" />
+              </MenuItem>
+              <MenuItem>
+                {" "}
+                Quản lý Câu Hỏi
+                <Link to="/admin/manage-questions" />
+              </MenuItem>
             </SubMenu>
           </Menu>
         </SidebarContent>

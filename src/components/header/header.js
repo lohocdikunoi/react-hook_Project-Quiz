@@ -4,12 +4,8 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
 const Header = () => {
-  const data = useSelector((state) => state.user.data);
   const isAuthenticator = useSelector((state) => state.user.isAuthenticator);
-  console.log(">>> Check data: ", data);
-  console.log(">>> Check isAuthenticator: ", isAuthenticator);
   const navigate = useNavigate();
   const HandleLogin = () => {
     navigate("/login");
