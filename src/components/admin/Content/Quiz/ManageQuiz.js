@@ -8,6 +8,7 @@ import Accordion from "react-bootstrap/Accordion";
 import QuizQA from "./QuizQA";
 import AssignQA from "./AssignQA";
 import { getAllQuizForAdmin } from "../../../../service/apiService";
+import { useTranslation } from "react-i18next";
 
 const options = [
   { value: "EASY", label: "EASY" },
@@ -16,6 +17,7 @@ const options = [
 ];
 
 const ManageQuiz = () => {
+  const { t } = useTranslation();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [type, setType] = useState("");
@@ -62,15 +64,17 @@ const ManageQuiz = () => {
     }
   };
   return (
+    //     // "1": "Update Question/Answer",
+    // "2": "Assign Question/Answer"
     <div className="quiz-container">
       <Accordion defaultActiveKey="0">
         <Accordion.Item eventKey="0">
-          <Accordion.Header>Manage Quiz</Accordion.Header>
+          <Accordion.Header>{t("ManageQuiz.0.Header")}</Accordion.Header>
           <Accordion.Body>
             <div className="my-3 add-new">
               <fieldset className="border rounded-3 p-3">
                 <legend className="float-none w-auto px-3">
-                  Add New Quiz:
+                  {t("ManageQuiz.0.Body.add-new")}
                 </legend>
                 <div className="form-floating mb-3">
                   <input
@@ -80,7 +84,9 @@ const ManageQuiz = () => {
                     className="form-control"
                     placeholder="Your Name"
                   />
-                  <label for="floatingInput">Name</label>
+                  <label for="floatingInput">
+                    {t("ManageQuiz.0.Body.Name")}
+                  </label>
                 </div>
                 <div className="form-floating">
                   <input
@@ -90,18 +96,22 @@ const ManageQuiz = () => {
                     className="form-control"
                     placeholder="Description..."
                   />
-                  <label for="floatingPassword">Description</label>
+                  <label for="floatingPassword">
+                    {t("ManageQuiz.0.Body.Description")}
+                  </label>
                 </div>
                 <div className="my-3">
                   <Select
                     defaultValue={type}
                     onChange={setType}
                     options={options}
-                    placeholder="Quizz Type..."
+                    placeholder={t("ManageQuiz.0.Body.Type")}
                   />
                 </div>
                 <div className="more-action">
-                  <label className="form-group">Upload File</label>
+                  <label className="form-group">
+                    {t("ManageQuiz.0.Body.more-action")}
+                  </label>
                   <input
                     onChange={(event) => HandleChangeFile(event)}
                     className="form-control my-1"
@@ -113,7 +123,7 @@ const ManageQuiz = () => {
                     onClick={() => HandleSave()}
                     className="btn btn-warning"
                   >
-                    Save
+                    {t("ManageQuiz.0.Body.Save")}
                   </button>
                 </div>
               </fieldset>
@@ -124,13 +134,13 @@ const ManageQuiz = () => {
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
-          <Accordion.Header>Update Question/Answer</Accordion.Header>
+          <Accordion.Header>{t("ManageQuiz.1.Header")}</Accordion.Header>
           <Accordion.Body>
             <QuizQA listQuiz={listQuizSelect} FetchAllQuiz={FetchAllQuiz} />
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="2">
-          <Accordion.Header>Assign Question/Answer</Accordion.Header>
+          <Accordion.Header>{t("ManageQuiz.2.Header")}</Accordion.Header>
           <Accordion.Body>
             <AssignQA
               listQuizSelect={listQuizSelect}

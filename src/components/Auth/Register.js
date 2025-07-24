@@ -2,12 +2,13 @@ import { useState } from "react";
 import "./Register.scss";
 import { postRegister } from "../../service/apiService";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
-
 import { toast } from "react-toastify";
-
 import { useNavigate } from "react-router-dom";
+import Language from "../header/Language";
+import { Translation, useTranslation } from "react-i18next";
 
 const Register = () => {
+  const { t } = useTranslation();
   const navigate = new useNavigate();
   const validateEmail = (email) => {
     return String(email)
@@ -61,14 +62,15 @@ const Register = () => {
   return (
     <div className="Register_container">
       <div className="header">
-        <span>Already have an account?</span>
-        <button onClick={() => navigate("/login")}>Login</button>
+        <span>{t("Register.header")}</span>
+        <button onClick={() => navigate("/login")}>
+          {t("Register.login")}
+        </button>
+        <Language />
       </div>
       <div className="content col-4 mx-auto">
         <div className="title">Trinh Kim Vien</div>
-        <div className="welcome">
-          Get better data with conversational forms, surveys, quizzes & more.
-        </div>
+        <div className="welcome">{t("Register.welcome")}</div>
         <div className="group-form">
           <input
             onChange={(event) => setEmail(event.target.value)}
@@ -106,13 +108,12 @@ const Register = () => {
           </div>
 
           <label>
-            <input onClick={() => setAccept(!accept)} type="checkbox"></input> I
-            agree to Typeform’s Terms of Service, Privacy Policy and Data
-            Processing Agreement.
+            <input onClick={() => setAccept(!accept)} type="checkbox"></input>
+            {t("Register.checkbox")}
           </label>
         </div>
         <button onClick={() => HandleSubmitRegister()} className="btn">
-          Create my free account
+          {t("Register.submit")}
         </button>
       </div>
     </div>

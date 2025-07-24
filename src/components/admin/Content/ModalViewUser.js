@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useTranslation } from "react-i18next";
 
 const ModalViewUser = (props) => {
+  const { t } = useTranslation();
   const { show, setShow, dataUpdate } = props;
 
   const handleClose = () => {
@@ -43,7 +45,7 @@ const ModalViewUser = (props) => {
         onHide={handleClose}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Preview User</Modal.Title>
+          <Modal.Title>{t("ViewUser.Title")}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form className="row g-3">
@@ -58,7 +60,7 @@ const ModalViewUser = (props) => {
               />
             </div>
             <div className="col-md-6">
-              <label className="form-label">Password</label>
+              <label className="form-label">{t("ViewUser.Password")}</label>
               <input
                 disabled
                 type="password"
@@ -69,7 +71,7 @@ const ModalViewUser = (props) => {
             </div>
 
             <div className="col-md-6">
-              <label className="form-label">Username</label>
+              <label className="form-label">{t("ViewUser.Username")}</label>
               <input
                 disabled
                 value={username}
@@ -78,15 +80,15 @@ const ModalViewUser = (props) => {
               />
             </div>
             <div className="col-md-4">
-              <label className="form-label">Role</label>
+              <label className="form-label">{t("ViewUser.Role")}</label>
               <select
                 disabled
                 value={role}
                 id="inputState"
                 className="form-select"
               >
-                <option value="USER">USER</option>
-                <option value="ADMIN">ADMIN</option>
+                <option value="USER">{t("ViewUser.USER")}</option>
+                <option value="ADMIN">{t("ViewUser.ADMIN")}</option>
               </select>
             </div>
 
@@ -94,14 +96,14 @@ const ModalViewUser = (props) => {
               {preview ? (
                 <img src={preview}></img>
               ) : (
-                <span> Preview image</span>
+                <span> {t("ViewUser.img-preview")}</span>
               )}
             </div>
           </form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            {t("ViewUser.Close")}
           </Button>
         </Modal.Footer>
       </Modal>

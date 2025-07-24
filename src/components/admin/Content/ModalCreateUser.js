@@ -3,10 +3,12 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { FcPlus } from "react-icons/fc";
 import { postCreateUser } from "../../../service/apiService";
+import { useTranslation } from "react-i18next";
 
 import { toast } from "react-toastify";
 
 const ModalCreateUser = (props) => {
+  const { t } = useTranslation();
   const { show, setShow } = props;
 
   const validateEmail = (email) => {
@@ -90,7 +92,7 @@ const ModalCreateUser = (props) => {
         onHide={handleClose}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Add new user</Modal.Title>
+          <Modal.Title>{t("CreateUser.Title")}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form className="row g-3">
@@ -105,7 +107,7 @@ const ModalCreateUser = (props) => {
               />
             </div>
             <div className="col-md-6">
-              <label className="form-label">Password</label>
+              <label className="form-label">{t("CreateUser.Password")}</label>
               <input
                 onChange={(event) => setPassword(event.target.value)}
                 type="password"
@@ -116,7 +118,7 @@ const ModalCreateUser = (props) => {
             </div>
 
             <div className="col-md-6">
-              <label className="form-label">Username</label>
+              <label className="form-label">{t("CreateUser.Username")}</label>
               <input
                 onChange={(event) => setUsername(event.target.value)}
                 value={username}
@@ -125,15 +127,15 @@ const ModalCreateUser = (props) => {
               />
             </div>
             <div className="col-md-4">
-              <label className="form-label">Role</label>
+              <label className="form-label">{t("CreateUser.Role")}</label>
               <select
                 value={role}
                 onChange={(event) => setRole(event.target.value)}
                 id="inputState"
                 className="form-select"
               >
-                <option value="USER">USER</option>
-                <option value="ADMIN">ADMIN</option>
+                <option value="USER">{t("CreateUser.USER")}</option>
+                <option value="ADMIN">{t("CreateUser.ADMIN")}</option>
               </select>
             </div>
             <div className="col-md-12">
@@ -142,7 +144,7 @@ const ModalCreateUser = (props) => {
                 className="form-label label-upload-file"
               >
                 {" "}
-                <FcPlus /> Upload file image
+                <FcPlus /> {t("CreateUser.upload-file")}
               </label>
               <br />
               <input
@@ -156,17 +158,17 @@ const ModalCreateUser = (props) => {
               {preview ? (
                 <img src={preview}></img>
               ) : (
-                <span> Preview image</span>
+                <span>{t("CreateUser.img-preview")}</span>
               )}
             </div>
           </form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            {t("CreateUser.Close")}
           </Button>
           <Button variant="primary" onClick={() => handleSubmit()}>
-            Save
+            {t("CreateUser.Save")}
           </Button>
         </Modal.Footer>
       </Modal>

@@ -8,11 +8,13 @@ import { TbCircleMinus } from "react-icons/tb";
 import { v4 as uuidv4 } from "uuid";
 import _ from "lodash";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 import Lightbox from "react-awesome-lightbox";
 import { postUpsertQA, getQuizQA } from "../../../../service/apiService";
 
 const QuizQA = (props) => {
+  const { t } = useTranslation();
   let { listQuiz, FetchAllQuiz } = props;
   const [questionSelect, setQuestionSelect] = useState({});
 
@@ -297,14 +299,14 @@ const QuizQA = (props) => {
   return (
     <div className="question-container">
       <div className="question-type">
-        Select Quiz:
+        {t("QuizQA.type")}
         <Select
           value={questionSelect}
           onChange={setQuestionSelect}
           options={listQuiz}
         />
       </div>
-      <div className="title-question mt-3"> Add Question:</div>
+      <div className="title-question mt-3"> {t("QuizQA.title")}</div>
       {questions &&
         questions.length > 0 &&
         questions.map((question, index) => {
@@ -327,7 +329,8 @@ const QuizQA = (props) => {
                       class="form-control"
                     />
                     <label for="floatingInput">
-                      Question's {index + 1} {question.description}
+                      {t("QuizQA.content.Question")} {index + 1}{" "}
+                      {question.description}
                     </label>
                   </div>
                 </div>
@@ -350,7 +353,7 @@ const QuizQA = (props) => {
                         {question.imageName}
                       </span>
                     ) : (
-                      "0 file uploaded"
+                      <> {t("QuizQA.content.upload-file")}</>
                     )}
                   </span>
                 </div>
@@ -410,7 +413,8 @@ const QuizQA = (props) => {
                           class="form-control"
                         />
                         <label for="floatingInput">
-                          Answer {index + 1} {answer.description}
+                          {t("QuizQA.content.Answer")} {index + 1}{" "}
+                          {answer.description}
                         </label>
                       </div>
                       <div className="icon">
@@ -457,7 +461,7 @@ const QuizQA = (props) => {
             onClick={() => HandleSubmitQuestion()}
             className="btn btn-warning"
           >
-            Save Question
+            {t("QuizQA.content.btn")}
           </button>
         </div>
       )}

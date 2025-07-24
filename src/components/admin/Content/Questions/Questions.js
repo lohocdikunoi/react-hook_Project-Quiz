@@ -8,6 +8,7 @@ import { TbCircleMinus } from "react-icons/tb";
 import { v4 as uuidv4 } from "uuid";
 import _ from "lodash";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 import Lightbox from "react-awesome-lightbox";
 import {
@@ -17,6 +18,7 @@ import {
 } from "../../../../service/apiService";
 
 const Questions = () => {
+  const { t } = useTranslation();
   const [questionSelect, setQuestionSelect] = useState({});
 
   const initQuestion = [
@@ -230,17 +232,17 @@ const Questions = () => {
 
   return (
     <div className="question-container">
-      <div className="title">Manage Questions</div>
+      <div className="title">{t("ManageQuestion.title")}</div>
       <hr />
       <div className="question-type">
-        Select Quiz:
+        {t("ManageQuestion.type")}
         <Select
           value={questionSelect}
           onChange={setQuestionSelect}
           options={listQuiz}
         />
       </div>
-      <div className="title-question mt-3"> Add Question:</div>
+      <div className="title-question mt-3"> {t("ManageQuestion.Add")}</div>
       {questions &&
         questions.length > 0 &&
         questions.map((question, index) => {
@@ -263,7 +265,8 @@ const Questions = () => {
                       class="form-control"
                     />
                     <label for="floatingInput">
-                      Question's {index + 1} {question.description}
+                      {t("ManageQuestion.question")} {index + 1}{" "}
+                      {question.description}
                     </label>
                   </div>
                 </div>
@@ -286,7 +289,7 @@ const Questions = () => {
                         {question.imageName}
                       </span>
                     ) : (
-                      "0 file uploaded"
+                      <>{t("ManageQuestion.name-file")} </>
                     )}
                   </span>
                 </div>
@@ -346,7 +349,8 @@ const Questions = () => {
                           class="form-control"
                         />
                         <label for="floatingInput">
-                          Answer {index + 1} {answer.description}
+                          {t("ManageQuestion.answer")} {index + 1}{" "}
+                          {answer.description}
                         </label>
                       </div>
                       <div className="icon">
@@ -393,7 +397,7 @@ const Questions = () => {
             onClick={() => HandleSubmitQuestion()}
             className="btn btn-warning"
           >
-            Save Question
+            {t("ManageQuestion.btn")}
           </button>
         </div>
       )}

@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import ModalDeleteQuiz from "./ModalDeleteQuiz";
 import ModalUpdateQuiz from "./ModalUpdateQuiz";
 import { useToast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const TableQuiz = (props) => {
+  const { t } = useTranslation();
   let { listQuiz, FetchAllQuiz } = props;
   // const [listQuiz, setListQuiz] = useState([]);
   const [dataDeleteQuiz, setDataDeleteQuiz] = useState({});
@@ -39,15 +41,15 @@ const TableQuiz = (props) => {
       <table className="table table-hover table-bordered">
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Type</th>
+            <th scope="col">{t("TableQuiz.ID")}</th>
+            <th scope="col">{t("TableQuiz.Name")}</th>
+            <th scope="col">{t("TableQuiz.Description")}</th>
+            <th scope="col">{t("TableQuiz.Type")}</th>
             <th
               style={{ display: "flex", justifyContent: "center" }}
               scope="col"
             >
-              Action
+              {t("TableQuiz.Action")}
             </th>
           </tr>
         </thead>
@@ -70,13 +72,13 @@ const TableQuiz = (props) => {
                       className="btn btn-warning"
                       onClick={() => HandleUpdateQuiz(item)}
                     >
-                      Edit
+                      {t("TableQuiz.Edit")}
                     </button>
                     <button
                       className="btn btn-danger"
                       onClick={() => HandleDeleteQuiz(item)}
                     >
-                      Delete
+                      {t("TableQuiz.Delete")}
                     </button>
                   </td>
                 </tr>

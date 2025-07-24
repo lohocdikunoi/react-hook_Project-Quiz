@@ -6,11 +6,16 @@ import "./DetailQuiz.scss";
 import Question from "./Question";
 import ModalResult from "./ModalResult";
 import RightContent from "./Content/RightContent";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
+import { NavLink } from "react-router-dom";
 
 const DetailQuiz = (props) => {
   const location = useLocation();
   const params = useParams();
   let QuizId = params.id;
+
+  const [isFinish, setIsFinish] = useState(false);
+  const [showAnswer, setShowAnswer] = useState(false);
 
   const [QuizData, setQuizData] = useState([]);
   const [index, setIndex] = useState(0);
@@ -112,52 +117,104 @@ const DetailQuiz = (props) => {
     let res = await postSubmitAnswer(submit_answer);
     console.log(res);
     if (res && res.EC === 0) {
+      setIsFinish(true);
       setShowModalResult(true);
       setDataModalResult({
         countCorrect: res?.DT?.countCorrect,
         countTotal: res?.DT?.countTotal,
         quizData: res?.DT?.quizData,
       });
+
+      //update DataQuiz with correct answer
+      if (res.DT && res.DT.quizData) {
+        let dataQuizClone = _.cloneDeep(QuizData);
+        let a = res.DT.quizData;
+        for (let q of a) {
+          for (let i = 0; i < dataQuizClone.length; i++) {
+            if (+q.questionId === +dataQuizClone[i].questionId) {
+              //update answer
+              let newAnswers = [];
+              for (let j = 0; j < dataQuizClone[i].answers.length; j++) {
+                let s = q.systemAnswers.find(
+                  (item) => +item.id === +dataQuizClone[i].answers[j].id
+                );
+                if (s) {
+                  dataQuizClone[i].answers[j].isCorrect = true;
+                }
+                newAnswers.push(dataQuizClone[i].answers[j]);
+              }
+              dataQuizClone[i].answers = newAnswers;
+            }
+          }
+        }
+        setQuizData(dataQuizClone);
+      }
     } else {
       alert("Something wrong...");
     }
   };
 
+  const HandleShowAnswer = () => {
+    if (!isFinish) return;
+    setShowAnswer(true);
+  };
+
   return (
-    <div className="Detail-Quiz_container">
-      <div className="Left-content">
-        <div className="title">
-          Quiz {QuizId}: {location?.state?.QuizTitle}
+    <>
+      <Breadcrumb className="detail-quiz-new-header">
+        <NavLink to="/" className="breadcrumb-item">
+          Home
+        </NavLink>
+        <NavLink to="/users" className="breadcrumb-item">
+          User
+        </NavLink>
+        <Breadcrumb.Item active>Data</Breadcrumb.Item>
+      </Breadcrumb>
+      <div className="Detail-Quiz_container">
+        <div className="Left-content">
+          <div className="title">
+            Quiz {QuizId}: {location?.state?.QuizTitle}
+          </div>
+          <hr />
+          <div className="q-content">
+            <Question
+              showAnswer={showAnswer}
+              HandleCheckBox={HandleCheckBox}
+              data={QuizData && QuizData.length > 0 ? QuizData[index] : []}
+              index={index}
+            />
+          </div>
+          <div className="footer">
+            <button onClick={() => HandlePrev()} className="btn btn-primary">
+              Prev
+            </button>
+            <button onClick={() => HandleNext()} className="btn btn-secondary">
+              Next
+            </button>
+            <button
+              disabled={isFinish}
+              onClick={() => HandleFinish()}
+              className="btn btn-warning"
+            >
+              Finish
+            </button>
+          </div>
         </div>
-        <hr />
-        <div className="q-content">
-          <Question
-            HandleCheckBox={HandleCheckBox}
-            data={QuizData && QuizData.length > 0 ? QuizData[index] : []}
-            index={index}
+        <div className="Right-content">
+          <RightContent
+            setIndex={setIndex}
+            HandleFinish={HandleFinish}
+            QuizData={QuizData}
           />
         </div>
-        <div className="footer">
-          <button onClick={() => HandlePrev()} className="btn btn-primary">
-            Prev
-          </button>
-          <button onClick={() => HandleNext()} className="btn btn-secondary">
-            Next
-          </button>
-          <button onClick={() => HandleFinish()} className="btn btn-warning">
-            Finish
-          </button>
-        </div>
+        <ModalResult
+          HandleShowAnswer={HandleShowAnswer}
+          dataResult={DataModalResult}
+          show={ShowModalResult}
+          setShow={setShowModalResult}
+        />
       </div>
-      <div className="Right-content">
-        <RightContent />
-      </div>
-      <ModalResult
-        dataResult={DataModalResult}
-        show={ShowModalResult}
-        setShow={setShowModalResult}
-      />
-    </div>
+    </>
   );
 };
 

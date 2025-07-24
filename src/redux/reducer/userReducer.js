@@ -1,4 +1,4 @@
-import { FETCH_LOGIN_USER } from "../action/userAction";
+import { FETCH_LOGIN_USER, USER_LOGOUT_SUCCESS } from "../action/userAction";
 
 const INITIAL_STATE = {
   data: {
@@ -25,6 +25,20 @@ const userReducer = (state = INITIAL_STATE, action) => {
           image: action?.payload?.DT?.image,
         },
         isAuthenticator: true,
+      };
+
+    case USER_LOGOUT_SUCCESS:
+      return {
+        ...state,
+        data: {
+          access_token: "",
+          refresh_token: "",
+          email: "",
+          username: "",
+          role: "",
+          image: "",
+        },
+        isAuthenticator: false,
       };
 
     default:

@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import Select from "react-select";
 import { postAssignQA, getAllUser } from "../../../../service/apiService";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const AssignQA = (props) => {
+  const { t } = useTranslation();
   let { listQuizSelect, FetchAllQuiz } = props;
   const [quizSelect, setQuizSelect] = useState({});
   // const [listQuiz, setListQuiz] = useState([]);
@@ -34,6 +36,8 @@ const AssignQA = (props) => {
     console.log(res);
     if (res && res.EC === 0) {
       toast.success(res.EM);
+      setQuizSelect({});
+      setUserSelect({});
     } else {
       toast.error(res.EM);
     }
@@ -55,7 +59,7 @@ const AssignQA = (props) => {
     <div className="assign-container">
       <div className="select row">
         <div className="question-type col-md-6">
-          Select Quiz:
+          {t("AssignQA.Quiz")}
           <Select
             value={quizSelect}
             onChange={setQuizSelect}
@@ -63,7 +67,7 @@ const AssignQA = (props) => {
           />
         </div>
         <div className="question-type col-md-6">
-          Select User:
+          {t("AssignQA.User")}
           <Select
             value={userSelect}
             onChange={setUserSelect}
@@ -73,7 +77,7 @@ const AssignQA = (props) => {
       </div>
       <div>
         <button onClick={() => HandleAssign()} className="btn btn-warning mt-3">
-          Assign Submit
+          {t("AssignQA.btn")}
         </button>
       </div>
     </div>

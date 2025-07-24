@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 import { postLogin } from "../../service/apiService";
@@ -6,9 +6,12 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { doLogin } from "../../redux/action/userAction";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import Language from "../header/Language";
+import { useTranslation, Trans } from "react-i18next";
 
 const Login = (props) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,19 +57,27 @@ const Login = (props) => {
     navigate("/register");
   };
 
+  const HandleKeyDown = (event) => {
+    if (event && event.key === "Enter") {
+      HandleSubmitLogin();
+    }
+  };
+
   return (
     <div className="Login-container">
       <div className="header">
-        <span>Don't have an account yet?</span>
-        <button onClick={() => HandleSigin()}>Sign in</button>
+        <span>{t("Login.header")}</span>
+        <button onClick={() => HandleSigin()}>{t("Login.signin")}</button>
+        <Language />
       </div>
       <div className="content">
         <div className="title col-4 mx-auto">Trinh Kim Vien</div>
-        <div className="welcome col-4 mx-auto">Hello, who's this?</div>
+        <div className="welcome col-4 mx-auto">{t("Login.welcome")}</div>
         <div className="form">
           <div className="form-group col-4 mx-auto">
             <label>Email</label>
             <input
+              onKeyDown={(event) => HandleKeyDown(event)}
               onChange={(event) => setEmail(event.target.value)}
               value={email}
               type="email"
@@ -74,17 +85,18 @@ const Login = (props) => {
             ></input>
           </div>
           <div className="form-group col-4 mx-auto">
-            <label>Password</label>
+            <label>{t("Login.password")}</label>
             <input
               onChange={(event) => setPassword(event.target.value)}
               value={password}
               type="password"
               className="form-control"
+              onKeyDown={(event) => HandleKeyDown(event)}
             ></input>
           </div>
           <div className=" col-4 mx-auto">
             <span className="forgot-password">
-              <u>Forgot password?</u>
+              <u>{t("Login.forgot-password")}</u>
             </span>
           </div>
         </div>
@@ -97,11 +109,11 @@ const Login = (props) => {
             <AiOutlineLoading3Quarters className="loading" />
           )}{" "}
           &nbsp;
-          <span>Login to Trinh Kim Vien</span>
+          <span>{t("Login.loading")}</span>
         </button>
         <span onClick={() => navigate("/")} className="text-center back">
           {" "}
-          &#60;&#60;- &#160; Go to Home Page
+          &#60;&#60;- &#160; {t("Login.back")}
         </span>
       </div>
     </div>

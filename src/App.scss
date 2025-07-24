@@ -15,9 +15,26 @@ body {
   }
 }
 
+.language {
+  .dropdown-toggle::after {
+    display: none !important;
+  }
+}
+
 .app-container {
   .header-container {
     .navbar {
+      .container {
+        .navbar-collapse {
+          .nav-item {
+            margin-left: 30px;
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
       z-index: 1;
       // position: fixed;
       top: 0px;

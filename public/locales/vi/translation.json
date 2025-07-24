@@ -1,0 +1,203 @@
+{
+  "HomePage": {
+    "heading_lv1": "Làm cho các biểu mẫu đáng để điền vào",
+    "desc_content": "Nhận thêm dữ liệu như đăng ký, phản hồi và bất kỳ thông tin nào khác bằng các biểu mẫu được thiết kế mới mẻ và khác biệt.",
+    "login": "Bắt đầu—miễn phí",
+    "users": "Làm bài kiểm tra ngay bây giờ"
+  },
+  "Header": {
+    "home": "Trang chủ",
+    "users": "Người dùng",
+    "admin": "Quản trị viên",
+    "login": "Đăng nhập",
+    "register": "Đăng kí",
+    "Setting": "Cài đặt",
+    "Profile": "Hồ sơ",
+    "Logout": "Đăng xuất"
+  },
+  "Login": {
+    "header": "Chưa có tài khoản?",
+    "signin": "Đăng kí",
+    "welcome": "Xin chào, đây là ai vậy?",
+    "password": "Mật khẩu",
+    "login": "Đăng nhập",
+    "forgot-password": "Quên mật khẩu",
+    "loading": "Đăng nhập vào Trịnh Kim Viên",
+    "back": "Đi tới Trang chủ"
+  },
+  "Register": {
+    "header": "Bạn đã có tài khoản?",
+    "login": "Đăng nhập",
+    "welcome": "Có được dữ liệu tốt hơn với các biểu mẫu đàm thoại, khảo sát, câu đố, v.v.",
+    "checkbox": "Tôi đồng ý với Điều khoản dịch vụ, Chính sách bảo mật và Thỏa thuận xử lý dữ liệu của Typeform.",
+    "submit": "Tạo tài khoản miễn phí của tôi"
+  },
+  "ListQuiz": {
+    "btn": "Bắt đầu ngay"
+  },
+  "SideBar": {
+    "Dashboard": "Bảng điều khiển",
+    "title": "Đặc trưng",
+    "Features": {
+      "user": "Quản lý người dùng",
+      "quiz": "Quản lý bài kiểm tra",
+      "question": "Quản lý câu hỏi"
+    }
+  },
+  "DashBoard": {
+    "title": "Bảng điều khiển phân tích",
+    "content": {
+      "user": "Tổng số người dùng",
+      "quiz": "Tổng số câu đố",
+      "question": "Tổng số câu hỏi",
+      "answer": "Tổng số câu trả lời"
+    }
+  },
+  "ManageUser": {
+    "title": "Quản lý người dùng",
+    "content": {
+      "Add-User": "Thêm người dùng",
+      "table": {
+        "No": "STT",
+        "UserName": "Tên người dùng",
+        "Email": "Email",
+        "Role": "Vai trò",
+        "Action": "Hành động",
+        "View": "Xem",
+        "Update": "Cập nhật",
+        "Delete": "Xóa",
+        "Prev": "<- Trước đó",
+        "Next": "Kế tiếp ->"
+      }
+    }
+  },
+  "CreateUser": {
+    "Title": "Thêm người dùng mới",
+    "Password": "Mật khẩu",
+    "Username": "Tên người dùng",
+    "Role": "Vai trò",
+    "USER": "Người dùng",
+    "ADMIN": "Quản trị viên",
+    "upload-file": "Tải lên hình ảnh tập tin",
+    "img-preview": "Xem trước hình ảnh",
+    "Close": "Đóng",
+    "Save": "Lưu"
+  },
+  "ViewUser": {
+    "Title": "Xem trước Người dùng",
+    "Password": "Mật khẩu",
+    "Username": "Tên người dùng",
+    "Role": "Vai trò",
+    "USER": "Người dùng",
+    "ADMIN": "Quản trị viên",
+    "img-preview": "Xem trước hình ảnh",
+    "Close": "Đóng"
+  },
+  "UpdateUser": {
+    "Title": "Cập nhật người dùng",
+    "Password": "Mật khẩu",
+    "Username": "Tên người dùng",
+    "Role": "Vai trò",
+    "USER": "Người dùng",
+    "ADMIN": "Quản trị viên",
+    "upload-file": "Tải lên hình ảnh tập tin",
+    "img-preview": "Xem trước hình ảnh",
+    "Close": "Đóng",
+    "Save": "Lưu"
+  },
+  "DeleteUser": {
+    "Title": "Xác nhận xóa người dùng?",
+    "Body": "Bạn có chắc chắn muốn xóa người dùng. email:",
+    "Cancel": "Hủy bỏ",
+    "Confirm": "Xác nhận"
+  },
+  "ManageQuiz": {
+    "0": {
+      "Header": "Quản lý bài kiểm tra",
+      "Body": {
+        "add-new": "Thêm câu đố mới:",
+        "Name": "Tên",
+        "Description": "Sự miêu tả",
+        "Type": "Loại câu đố...",
+        "more-action": "Tải lên tập tin",
+        "Save": "Lưu"
+      }
+    },
+    "1": {
+      "Header": "Cập nhật Câu hỏi/Trả lời"
+    },
+    "2": {
+      "Header": "Giao Câu hỏi/Câu trả lời"
+    }
+  },
+  "AssignQA": {
+    "Quiz": "Chọn bài kiểm tra:",
+    "User": "Chọn người dùng:",
+    "btn": "Giao nộp"
+  },
+  "QuizQA": {
+    "type": "Chọn bài kiểm tra:",
+    "title": "Thêm câu hỏi:",
+    "content": {
+      "Question": "Câu hỏi",
+      "upload-file": "0 tập tin đã tải lên",
+      "Answer": "Trả lời",
+      "btn": "Lưu câu hỏi"
+    }
+  },
+  "TableQuiz": {
+    "ID": "STT",
+    "Name": "Tên",
+    "Description": "Sự miêu tả",
+    "Type": "Kiểu",
+    "Action": "Hành động",
+    "Edit": "Chỉnh sửa",
+    "Delete": "Xóa"
+  },
+  "UpdateQuiz": {
+    "Title": "Chỉnh sửa một bài kiểm tra",
+    "Description": "Sự miêu tả",
+    "Name": "Tên",
+    "Type": "Kiểu",
+    "Quizz-Type": "Loại câu hỏi trắc nghiệm...",
+    "upload-file": "Tải lên hình ảnh tập tin",
+    "img-preview": "Xem trước hình ảnh",
+    "Close": "Đóng",
+    "Save": "Lưu"
+  },
+  "DeleteQuiz": {
+    "Title": "Xác nhận Xóa Bài kiểm tra ?",
+    "Body": "Bạn có chắc chắn muốn xóa bài kiểm tra này không?",
+    "ID": "STT",
+    "Cancel": "Hủy bỏ",
+    "Confirm": "Xác nhận"
+  },
+  "ManageQuestion": {
+    "title": "Quản lý câu hỏi",
+    "type": "Chọn bài kiểm tra:",
+    "Add": "Thêm câu hỏi:",
+    "name-file": "0 tập tin đã tải lên",
+    "question": "Câu hỏi",
+    "answer": "Trả lời",
+    "btn": "Lưu câu hỏi"
+  },
+  "Profile": {
+    "title": "Hồ sơ",
+    "infor": "Thông tin người dùng",
+    "password": "Thay đổi mật khẩu",
+    "history": "Lịch sử"
+  },
+  "ChangePassword": {
+    "Current": "Mật khẩu hiện tại",
+    "New": "Mật khẩu mới",
+    "Confirm": "Xác nhận mật khẩu",
+    "save": "Lưu"
+  },
+  "History": {
+    "ID": "STT",
+    "Name": "Tên bài kiểm tra",
+    "Question": "Tổng số câu hỏi",
+    "Correct": "Tổng số chính xác",
+    "date": "NGÀY"
+  }
+}

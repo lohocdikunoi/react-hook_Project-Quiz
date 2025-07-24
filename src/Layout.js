@@ -12,6 +12,9 @@ import ListQuiz from "./components/users/ListQuiz";
 import DetailQuiz from "./components/users/DetailQuiz";
 import ManageQuiz from "./components/admin/Content/Quiz/ManageQuiz";
 import Questions from "./components/admin/Content/Questions/Questions";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import PrivateAuth from "./PrivateRoute/PrivateAuth";
+import { Suspense } from "react";
 
 const NotFound = () => {
   return <div className="container ">Error: 404. Not Found.</div>;
@@ -19,23 +22,51 @@ const NotFound = () => {
 
 const Layout = () => {
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />}></Route>
-          <Route path="users" element={<ListQuiz />}></Route>
+          <Route
+            path="users"
+            element={
+              <PrivateRoute>
+                <ListQuiz />
+              </PrivateRoute>
+            }
+          ></Route>
         </Route>
         <Route path="/quiz/:id" element={<DetailQuiz />}></Route>
 
-        <Route path="admin" element={<Admin />}>
+        <Route
+          path="admin"
+          element={
+            <PrivateRoute>
+              <Admin />
+            </PrivateRoute>
+          }
+        >
           <Route index element={<Dashboard />}></Route>
           <Route path="/admin/manage-user" element={<ManageUser />}></Route>
           <Route path="/admin/manage-quizzes" element={<ManageQuiz />}></Route>
           <Route path="/admin/manage-questions" element={<Questions />}></Route>
         </Route>
 
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/register" element={<Register />}></Route>
+        <Route
+          path="/login"
+          element={
+            <PrivateAuth>
+              <Login />
+            </PrivateAuth>
+          }
+        ></Route>
+        <Route
+          path="/register"
+          element={
+            <PrivateAuth>
+              <Register />
+            </PrivateAuth>
+          }
+        ></Route>
 
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
@@ -53,7 +84,7 @@ const Layout = () => {
         theme="light"
       />
       <ToastContainer />
-    </>
+    </Suspense>
   );
 };
 

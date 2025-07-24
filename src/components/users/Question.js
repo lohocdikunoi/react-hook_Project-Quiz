@@ -1,7 +1,12 @@
 import _ from "lodash";
+import { useState } from "react";
+import Lightbox from "react-awesome-lightbox";
+import { IoIosClose } from "react-icons/io";
+import { IoIosCheckmark } from "react-icons/io";
 
 const Question = (props) => {
-  const { data, index } = props;
+  const [isPreviewImage, setIsPreviewImage] = useState(false);
+  const { data, index, showAnswer } = props;
   if (_.isEmpty(data)) {
     return <></>;
   }
@@ -13,7 +18,18 @@ const Question = (props) => {
     <>
       {data.image ? (
         <div className="image">
-          <img src={`data:image/jpeg;base64,${data.image}`} />
+          <img
+            style={{ cursor: "pointer" }}
+            onClick={() => setIsPreviewImage(true)}
+            src={`data:image/jpeg;base64,${data.image}`}
+          />
+          {isPreviewImage === true && (
+            <Lightbox
+              onClose={() => setIsPreviewImage(false)}
+              image={`data:image/jpeg;base64,${data.image}`}
+              title={"Question_Image"}
+            ></Lightbox>
+          )}
         </div>
       ) : (
         <div className="image"></div>
@@ -31,6 +47,7 @@ const Question = (props) => {
               <div key={`answers ${index}`} className="a-child">
                 <div className="form-check">
                   <input
+                    disabled={showAnswer}
                     className="form-check-input"
                     type="checkbox"
                     onChange={() =>
@@ -39,6 +56,17 @@ const Question = (props) => {
                     checked={a.isSelected}
                   />
                   <label className="form-check-label">{a.description}</label>
+                  {showAnswer === true && (
+                    <>
+                      {a.isSelected === true && !a.isCorrect && (
+                        <IoIosClose className="incorrect" />
+                      )}
+
+                      {a.isCorrect === true && (
+                        <IoIosCheckmark className="correct" />
+                      )}
+                    </>
+                  )}
                 </div>
               </div>
             );

@@ -5,6 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import { FcPlus } from "react-icons/fc";
 import { toast } from "react-toastify";
 import { putUpdateQuizForAdmin } from "../../../../service/apiService";
+import { useTranslation } from "react-i18next";
 
 import Select from "react-select";
 
@@ -15,6 +16,7 @@ const options = [
 ];
 
 const ModalUpdateQuiz = (props) => {
+  const { t } = useTranslation();
   let { show, setShow, dataUpdateQuiz, FetchAllQuiz } = props;
 
   const [description, setDescription] = useState("");
@@ -80,12 +82,14 @@ const ModalUpdateQuiz = (props) => {
         onHide={handleClose}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Update a Quiz</Modal.Title>
+          <Modal.Title>{t("UpdateQuiz.Title")}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form className="row g-3">
             <div className="col-md-6">
-              <label className="form-label">Description</label>
+              <label className="form-label">
+                {t("UpdateQuiz.Description")}
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -95,7 +99,7 @@ const ModalUpdateQuiz = (props) => {
               />
             </div>
             <div className="col-md-6">
-              <label className="form-label">Name</label>
+              <label className="form-label">{t("UpdateQuiz.Name")}</label>
               <input
                 type="text"
                 className="form-control"
@@ -106,12 +110,12 @@ const ModalUpdateQuiz = (props) => {
             </div>
 
             <div className="my-3">
-              <p>Type</p>
+              <p>{t("UpdateQuiz.Type")}</p>
               <Select
                 defaultValue={difficulty}
                 onChange={setDifficulty}
                 options={options}
-                placeholder="Quizz Type..."
+                placeholder={t("UpdateQuiz.Quizz-Type")}
               />
             </div>
 
@@ -137,7 +141,7 @@ const ModalUpdateQuiz = (props) => {
                 className="form-label label-upload-file"
               >
                 {" "}
-                <FcPlus /> Upload file image
+                <FcPlus /> {t("UpdateQuiz.upload-file")}
               </label>
               <br />
               <input
@@ -151,17 +155,17 @@ const ModalUpdateQuiz = (props) => {
               {preview ? (
                 <img src={preview}></img>
               ) : (
-                <span> Preview image</span>
+                <span> {t("UpdateQuiz.img-preview")}</span>
               )}
             </div>
           </form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            {t("UpdateQuiz.Close")}
           </Button>
           <Button variant="primary" onClick={() => handleSubmit()}>
-            Save
+            {t("UpdateQuiz.Save")}
           </Button>
         </Modal.Footer>
       </Modal>
