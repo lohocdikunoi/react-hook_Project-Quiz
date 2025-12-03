@@ -1,12 +1,10 @@
 import App from "./App";
-import User from "./components/users/User";
 import Admin from "./components/admin/Admin";
 import HomePage from "./components/home/HomePage";
 import Dashboard from "./components/admin/Content/Dashboard";
 import ManageUser from "./components/admin/Content/ManageUser";
 import Login from "./components/Auth/Login";
-import { Routes, Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import PrivateAdmin from "./PrivateRoute/PrivateAdmin";
 import Register from "./components/Auth/Register";
 import ListQuiz from "./components/users/ListQuiz";
 import DetailQuiz from "./components/users/DetailQuiz";
@@ -15,6 +13,8 @@ import Questions from "./components/admin/Content/Questions/Questions";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PrivateAuth from "./PrivateRoute/PrivateAuth";
 import { Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 const NotFound = () => {
   return <div className="container ">Error: 404. Not Found.</div>;
@@ -41,7 +41,9 @@ const Layout = () => {
           path="admin"
           element={
             <PrivateRoute>
-              <Admin />
+              <PrivateAdmin>
+                <Admin />
+              </PrivateAdmin>
             </PrivateRoute>
           }
         >

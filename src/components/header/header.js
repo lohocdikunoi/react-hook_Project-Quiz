@@ -2,22 +2,26 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import Profile from "./Profile";
+import Language from "./Language";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../service/apiService";
 import { doLogout } from "../../redux/action/userAction";
 import { toast } from "react-toastify";
-import Language from "./Language";
 import { useTranslation, Trans } from "react-i18next";
-import Profile from "./Profile";
 import { useState } from "react";
 
 const Header = () => {
   const { t } = useTranslation();
+
+  const isRole = useSelector((state) => state.user.data.role);
   const isAuthenticator = useSelector((state) => state.user.isAuthenticator);
-  const account = useSelector((state) => state.user.data);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const account = useSelector((state) => state.user.data);
   const [showProfile, setShowProfile] = useState(false);
 
   const HandleLogin = () => {
@@ -53,7 +57,7 @@ const Header = () => {
                 {t("Header.users")}
               </NavLink>
               <NavLink to="admin" className="nav-link">
-                {t("Header.admin")}
+                {isRole === "ADMIN" ? t("Header.admin") : <></>}
               </NavLink>
             </Nav>
 
