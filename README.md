@@ -50,23 +50,31 @@ src/
 ├── utils/           # Các hàm tiện ích (Axios instance, i18n config)
 ├── PrivateRoute/    # Higher-Order Components xử lý phân quyền
 └── Layout.js        # Bố cục chính của ứng dụng
-```
-
 🔧 Cài đặt và Chạy dự án (Installation)
 Yêu cầu: Node.js (v14 trở lên)
 
-1. Clone dự án:
-   git clone [https://github.com/lohocdikunoi/react-hook_project-quiz.git](https://github.com/lohocdikunoi/react-hook_project-quiz.git)
-   cd react-hook_project-quiz
-2. Cài đặt các gói phụ thuộc:
-   npm install
+Clone dự án:
 
+Bash
+
+git clone [https://github.com/lohocdikunoi/react-hook_project-quiz.git](https://github.com/lohocdikunoi/react-hook_project-quiz.git)
+cd react-hook_project-quiz
+Cài đặt các gói phụ thuộc:
+
+Bash
+
+npm install
 # hoặc
+yarn install
+Khởi chạy ứng dụng:
 
-yarn install 3. Khởi chạy ứng dụng:
+Bash
+
 npm start
 Ứng dụng sẽ chạy tại: http://localhost:3000
+
 👨‍💻 Tác giả
 Trịnh Kim Viên (Developer)
 
 Dự án phục vụ báo cáo đồ án chuyên ngành.
+```
