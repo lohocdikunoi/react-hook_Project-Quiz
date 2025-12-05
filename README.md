@@ -1,72 +1,72 @@
-#Node.js v14.17.0
+# 🎓 Quiz App Management System - ReactJS Capstone Project
 
-# Getting Started with Create React App
+Dự án website thi trắc nghiệm trực tuyến được xây dựng dựa trên thư viện ReactJS. Hệ thống cung cấp giải pháp toàn diện cho việc quản lý đề thi, người dùng và thực hiện các bài kiểm tra online.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🚀 Tính năng chính (Features)
 
-## Available Scripts
+### 👤 Dành cho Người dùng (User)
 
-In the project directory, you can run:
+- **Authentication:** Đăng ký, Đăng nhập, Đăng xuất, Refresh Token.
+- **Làm bài thi:** Giao diện thi trắc nghiệm trực quan, đồng hồ đếm ngược.
+- **Kết quả:** Xem kết quả ngay sau khi nộp bài, xem lại đáp án đúng/sai.
+- **Lịch sử:** Xem lại lịch sử các bài thi đã làm.
+- **Profile:** Cập nhật thông tin cá nhân, đổi mật khẩu.
+- **Tiện ích:** Hỗ trợ đa ngôn ngữ (Tiếng Việt / Tiếng Anh), Dark/Light mode (cấu trúc sẵn).
 
-### `npm start`
+### 🛡️ Dành cho Quản trị viên (Admin)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Dashboard:** Thống kê tổng quan số lượng người dùng, bài thi, câu hỏi qua biểu đồ (Recharts).
+- **Quản lý User:** CRUD (Thêm, Xem, Sửa, Xóa) người dùng, Phân trang, Tìm kiếm.
+- **Quản lý Quiz:** Tạo đề thi mới, cập nhật thông tin đề thi.
+- **Quản lý Câu hỏi (QA):** Soạn thảo câu hỏi, upload ảnh minh họa, gán đáp án đúng.
+- **Phân quyền:** Chỉ định người dùng làm bài thi cụ thể.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Công nghệ sử dụng (Tech Stack)
 
-### `npm test`
+- **Core:** [React 18](https://reactjs.org/) (Hooks)
+- **State Management:** [Redux Toolkit](https://redux-toolkit.js.org/) & Redux Thunk (Xử lý bất đồng bộ).
+- **Data Persistence:** Redux Persist (Lưu trữ state đăng nhập).
+- **Routing:** React Router v6 (Nested Routes, Protected Routes).
+- **HTTP Client:** Axios (Custom Instance & Interceptors).
+- **UI Framework:** [Bootstrap 5](https://getbootstrap.com/) & React-Bootstrap.
+- **Styling:** SCSS (Sass).
+- **Internationalization:** i18next (Đa ngôn ngữ).
+- **Charts:** Recharts.
+- **Utilities:** Lodash, Nprogress, React-Toastify, React-Perfect-Scrollbar.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📂 Cấu trúc thư mục (Folder Structure)
 
-### `npm run build`
+```bash
+src/
+├── assets/          # Hình ảnh, video, media
+├── components/      # Các React Components
+│   ├── admin/       # Giao diện trang quản trị
+│   ├── Auth/        # Login, Register
+│   ├── header/      # Thanh điều hướng
+│   ├── home/        # Trang chủ
+│   └── users/       # Giao diện thi của người dùng
+├── redux/           # Redux Store, Actions, Reducers
+├── service/         # Cấu hình API endpoints
+├── utils/           # Các hàm tiện ích (Axios instance, i18n config)
+├── PrivateRoute/    # Higher-Order Components xử lý phân quyền
+└── Layout.js        # Bố cục chính của ứng dụng
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🔧 Cài đặt và Chạy dự án (Installation)
+Yêu cầu: Node.js (v14 trở lên)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone dự án:
+   git clone [https://github.com/lohocdikunoi/react-hook_project-quiz.git](https://github.com/lohocdikunoi/react-hook_project-quiz.git)
+   cd react-hook_project-quiz
+2. Cài đặt các gói phụ thuộc:
+   npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# hoặc
 
-### `npm run eject`
+yarn install 3. Khởi chạy ứng dụng:
+npm start
+Ứng dụng sẽ chạy tại: http://localhost:3000
+👨‍💻 Tác giả
+Trịnh Kim Viên (Developer)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Dự án phục vụ báo cáo đồ án chuyên ngành.
