@@ -1,0 +1,203 @@
+{
+  "HomePage": {
+    "heading_lv1": "Make forms worth filling out",
+    "desc_content": "Get more data—like signups, feedback, and anything else—with forms designed to be refreshingly different.",
+    "login": "Get started—it's free",
+    "users": "Doing Quiz Now"
+  },
+  "Header": {
+    "home": "Home",
+    "users": "Users",
+    "admin": "Admin",
+    "login": "Log in",
+    "register": "Sign up",
+    "Setting": "Setting",
+    "Profile": "Profile",
+    "Logout": "Log out"
+  },
+  "Login": {
+    "header": "Don't have an account?",
+    "signin": "Sign in",
+    "welcome": "Hello, who is this?",
+    "password": "Password",
+    "login": "Log gin",
+    "forgot-password": "Forgot-password",
+    "loading": "Log in to Trinh Kim Vien",
+    "back": "Go to Homepage"
+  },
+  "Register": {
+    "header": "Already have an account?",
+    "login": "Log in",
+    "welcome": "Get better data with conversational forms, surveys, quizzes & more.",
+    "checkbox": "I agree to Typeform’s Terms of Service, Privacy Policy and Data Processing Agreement.",
+    "submit": "Create my free account"
+  },
+  "ListQuiz": {
+    "btn": "Start Now"
+  },
+  "SideBar": {
+    "Dashboard": "Dashboard",
+    "title": "Features",
+    "Features": {
+      "user": "Manage User",
+      "quiz": "Manage Quiz",
+      "question": "Manage Question"
+    }
+  },
+  "DashBoard": {
+    "title": "Analytics DashBoard",
+    "content": {
+      "user": "Total Users",
+      "quiz": "Total Quizzes",
+      "question": "Total Questions",
+      "answer": "Total Answers"
+    }
+  },
+  "ManageUser": {
+    "title": "Manage User",
+    "content": {
+      "Add-User": "Add-User",
+      "table": {
+        "No": "No",
+        "UserName": "UserName",
+        "Email": "Email",
+        "Role": "Role",
+        "Action": "Action",
+        "View": "View",
+        "Update": "Update",
+        "Delete": "Delete",
+        "Prev": "<- Prev",
+        "Next": "Next ->"
+      }
+    }
+  },
+  "CreateUser": {
+    "Title": "Add new user",
+    "Password": "Password",
+    "Username": "Username",
+    "Role": "Role",
+    "USER": "USER",
+    "ADMIN": "ADMIN",
+    "upload-file": "Upload file image",
+    "img-preview": "Preview image",
+    "Close": "Close",
+    "Save": "Save"
+  },
+  "ViewUser": {
+    "Title": "Preview User",
+    "Password": "Password",
+    "Username": "Username",
+    "Role": "Role",
+    "USER": "USER",
+    "ADMIN": "ADMIN",
+    "img-preview": "Preview image",
+    "Close": "Close"
+  },
+  "UpdateUser": {
+    "Title": "Update a user",
+    "Password": "Password",
+    "Username": "Username",
+    "Role": "Role",
+    "USER": "USER",
+    "ADMIN": "ADMIN",
+    "upload-file": "Upload file image",
+    "img-preview": "Preview image",
+    "Close": "Close",
+    "Save": "Save"
+  },
+  "DeleteUser": {
+    "Title": "Confirm Delete the User ?",
+    "Body": "Are you sure to delete user. email:",
+    "Cancel": "Cannel",
+    "Confirm": "Confirm"
+  },
+  "ManageQuiz": {
+    "0": {
+      "Header": "Manage Quiz",
+      "Body": {
+        "add-new": "Add New Quiz:",
+        "Name": "Name",
+        "Description": "Description",
+        "Type": "Quizz Type...",
+        "more-action": "Upload File",
+        "Save": "Save"
+      }
+    },
+    "1": {
+      "Header": "Update Question/Answer"
+    },
+    "2": {
+      "Header": "Assign Question/Answer"
+    }
+  },
+  "AssignQA": {
+    "Quiz": "Select Quiz:",
+    "User": "Select User:",
+    "btn": "Assign Submit"
+  },
+  "QuizQA": {
+    "type": "Select Quiz:",
+    "title": "Add Question:",
+    "content": {
+      "Question": "Question's",
+      "upload-file": "0 file uploaded",
+      "Answer": "Answer",
+      "btn": "Save Question"
+    }
+  },
+  "TableQuiz": {
+    "ID": "ID",
+    "Name": "Name",
+    "Description": "Description",
+    "Type": "Type",
+    " ": "Action",
+    "Edit": "Edit",
+    "Delete": "Delete"
+  },
+  "UpdateQuiz": {
+    "Title": "Edit a Quiz",
+    "Description": "Description",
+    "Name": "Name",
+    "Type": "Type",
+    "Quizz-Type": "Quizz Type...",
+    "upload-file": "Upload file image",
+    "img-preview": "Preview image",
+    "Close": "Close",
+    "Save": "Save"
+  },
+  "DeleteQuiz": {
+    "Title": "Confirm Delete the Quiz ?",
+    "Body": "Are you sure to delete this Quiz.",
+    "ID": "ID",
+    "Cancel": "Cancel",
+    "Confirm": "Confirm"
+  },
+  "ManageQuestion": {
+    "title": "Manage Questions",
+    "type": "Select Quiz:",
+    "Add": "Add Question:",
+    "name-file": "0 file uploaded",
+    "question": "Question's",
+    "answer": "Answer",
+    "btn": "Save Question"
+  },
+  "Profile": {
+    "title": "Profile",
+    "infor": "User Information",
+    "password": "Change Password",
+    "history": "History"
+  },
+  "ChangePassword": {
+    "Current": "Current Password",
+    "New": "New Password",
+    "Confirm": "Confirm Password",
+    "save": "Save"
+  },
+  "History": {
+    "ID": "STT",
+    "Name": "Quiz Name",
+    "Question": "Total Question",
+    "Correct": "Total Correct",
+    "date": "DATE"
+  }
+}
